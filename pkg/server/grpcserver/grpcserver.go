@@ -44,12 +44,12 @@ func (s *GracefulServerImplementationGRPC) NewInstance(port int) (*net.Listener,
 }
 
 // ListenInstance - реализация работы сервера grpc.Server - начало прослушки
-func (s *GracefulServerImplementationGRPC) ListenInstance(instance net.Listener) error {
-	return s.server.Serve(instance)
+func (s *GracefulServerImplementationGRPC) ListenInstance(instance *net.Listener) error {
+	return s.server.Serve(*instance)
 }
 
 // ShutdownInstance - реализация завершения сервера для grpc.Server - вызывается server.GracefulServer
-func (s *GracefulServerImplementationGRPC) ShutdownInstance(context.Context, *grpc.Server) error {
+func (s *GracefulServerImplementationGRPC) ShutdownInstance(context.Context, *net.Listener) error {
 	s.server.GracefulStop()
 	return nil
 }
