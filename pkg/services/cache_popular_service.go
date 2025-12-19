@@ -11,6 +11,8 @@ import (
 //
 // count uses in LRU, cache somewhere (e.g. in-memory, redis, you provide repo)
 //
+// doesn't care about frequency of requests, only about amount of ones
+//
 //	type DanisService struct {
 //	  cacheService CachePopularService[string, *models.Danis]
 //	  storageRepository DanisStoragePort
@@ -96,4 +98,9 @@ func (s *CachePopularService[K, V]) save(ctx context.Context, object V) error {
 // Get - try to get object from cache, as usual
 func (s *CachePopularService[K, V]) Get(ctx context.Context, objectID K) (*V, error) {
 	return s.cacheStorage.GetObjectByID(ctx, objectID)
+}
+
+// ForceSave - save regardless of uses count in LRU.
+func (s *CachePopularService[K, V]) ForceSave(ctx context.Context, object V) error {
+	return s.save(ctx, object)
 }
