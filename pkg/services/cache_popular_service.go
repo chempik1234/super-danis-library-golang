@@ -104,3 +104,8 @@ func (s *CachePopularService[K, V]) Get(ctx context.Context, objectID K) (*V, er
 func (s *CachePopularService[K, V]) ForceSave(ctx context.Context, object V) error {
 	return s.save(ctx, object)
 }
+
+// MinUsesBeforeCaching - getter for minUses
+func (s *CachePopularService[K, V]) MinUsesBeforeCaching() int {
+	return s.minUses
+}
