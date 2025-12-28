@@ -1,6 +1,6 @@
 module github.com/chempik1234/super-danis-library-golang
 
-go 1.24.1
+go 1.25.1
 
 require (
 	github.com/go-faster/errors v0.7.1
