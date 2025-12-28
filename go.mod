@@ -1,4 +1,4 @@
-module github.com/chempik1234/super-danis-library-golang
+module github.com/chempik1234/super-danis-library-golang/v2
 
 go 1.25.1
 
