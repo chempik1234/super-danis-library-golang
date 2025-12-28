@@ -3,7 +3,7 @@ package kafka
 import (
 	"context"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/logger"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/logger"
 	"github.com/go-faster/errors"
 	"github.com/segmentio/kafka-go"
 	"go.uber.org/zap"

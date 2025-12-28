@@ -3,7 +3,7 @@ package mongodb
 import (
 	"context"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/logger"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/logger"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
@@ -27,7 +27,7 @@ type Config struct {
 //
 // tries to PING after connecting
 //
-//	client, err := New(ctx, config, rc, wc)
+//	client, err := New(ctx, config)
 //	if err != nil {
 //	   logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
 //	   return
@@ -58,7 +58,7 @@ func New(ctx context.Context, config Config) (*mongo.Client, error) {
 
 // DeferDisconnect - call in defer after getting client.
 //
-//	client, err := New(ctx, config, rc, wc)
+//	client, err := New(ctx, config)
 //	if err != nil {
 //	   logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
 //	   return

@@ -2,8 +2,8 @@ package tests
 
 import (
 	"context"
-	"github.com/chempik1234/super-danis-library-golang/pkg/logger"
-	"github.com/chempik1234/super-danis-library-golang/pkg/pkgports/adapters/cache/lru"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/logger"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/pkgports/adapters/cache/lru"
 	"testing"
 )
 

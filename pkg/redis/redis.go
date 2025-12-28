@@ -3,6 +3,7 @@ package redis
 import (
 	"context"
 	"fmt"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/logger"
 	"github.com/go-redis/redis/v8"
 	"time"
 )
@@ -42,6 +43,13 @@ type RetriesConfig struct {
 // New - create new redis conn with using given config
 //
 // Doesn't use all options
+//
+//	client, err := New(ctx, config)
+//	if err != nil {
+//	   logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
+//	   return
+//	}
+//	defer DeferDisconnect(ctx, client)
 func New(ctx context.Context, cfg Config) (*redis.Client, error) {
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:         cfg.Addr,
@@ -60,4 +68,18 @@ func New(ctx context.Context, cfg Config) (*redis.Client, error) {
 		return nil, fmt.Errorf("error pinging redis: %w", err)
 	}
 	return redisClient, nil
+}
+
+// DeferDisconnect - call in defer after getting client.
+//
+//	client, err := New(ctx, config)
+//	if err != nil {
+//	   logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
+//	   return
+//	}
+//	defer DeferDisconnect(ctx, client)
+func DeferDisconnect(ctx context.Context, client *redis.Client) {
+	if err := client.Close(); err != nil {
+		logger.GetOrCreateLoggerFromCtx(ctx).Error(ctx, "failed to disconnect from mongodb client")
+	}
 }

@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/linkedlist"
-	"github.com/chempik1234/super-danis-library-golang/pkg/logger"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/linkedlist"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/logger"
 	"go.uber.org/zap"
 	"sync"
 )

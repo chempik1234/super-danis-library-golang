@@ -4,7 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/genericports"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/genericports"
 	"github.com/go-redis/redis/v8"
 	"time"
 )

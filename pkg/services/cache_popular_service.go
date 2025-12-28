@@ -3,8 +3,8 @@ package services
 import (
 	"context"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/genericports"
-	"github.com/chempik1234/super-danis-library-golang/pkg/pkgports/adapters/cache/lru"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/genericports"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/pkgports/adapters/cache/lru"
 )
 
 // CachePopularService - cache only popular objects

@@ -1,9 +1,9 @@
 package tests
 
 import (
-	"github.com/chempik1234/super-danis-library-golang/pkg/server"
-	"github.com/chempik1234/super-danis-library-golang/pkg/server/grpcserver"
-	"github.com/chempik1234/super-danis-library-golang/pkg/server/httpserver"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/server"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/server/grpcserver"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/server/httpserver"
 	"google.golang.org/grpc"
 	"net"
 	"net/http"
