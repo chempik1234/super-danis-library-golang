@@ -33,8 +33,8 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/chempik1234/super-danis-library-golang/pkg/server"
-	"github.com/chempik1234/super-danis-library-golang/pkg/server/httpserver"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/server"
+	"github.com/chempik1234/super-danis-library-golang/v2/pkg/server/httpserver"
 	"log"
 	"net/http"
 	"sync"
@@ -66,4 +66,30 @@ func main() {
 	//endregion
 }
 
+```
+
+## Redis/MongoDB
+
+```go
+package main
+
+import "github.com/chempik1234/super-danis-library-golang/v2/pkg/redis"
+
+func main() {
+	// config := ...
+	// ctx := ...
+	redisClient, err := redis.New(ctx, config.RedisConfig)
+	if err != nil {
+		logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
+		return
+	}
+	defer DeferDisconnect(ctx, redisClient)
+	
+	mongoClient, err := mongo.New(ctx, config.RedisConfig)
+	if err != nil {
+		logger.GetLoggerFromCtx(ctx).Error(ctx, "aw hell no")
+		return
+	}
+	defer DeferDisconnect(ctx, mongoClient)
+}
 ```
