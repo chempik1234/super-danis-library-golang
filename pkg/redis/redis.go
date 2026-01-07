@@ -10,34 +10,34 @@ import (
 
 // Config is the redis connection config struct
 type Config struct {
-	Addr       string `env:"ADDR" envDefault:"localhost:6379"`
-	Password   string `env:"PASSWORD" envDefault:""`
-	DB         int    `env:"DB" envDefault:"0"`
-	TTLSeconds int    `env:"TTL_SECONDS" envDefault:"0"`
+	Addr       string `env:"ADDR" env-default:"localhost:6379"`
+	Password   string `env:"PASSWORD" env-default:""`
+	DB         int    `env:"DB" env-default:"0"`
+	TTLSeconds int    `env:"TTL_SECONDS" env-default:"0"`
 
-	Timeout TimeoutConfig `yaml:"timeout" env_prefix:"TIMEOUT_"`
+	Timeout TimeoutConfig `yaml:"timeout" env-prefix:"TIMEOUT_"`
 
-	Retries RetriesConfig `yaml:"retries" env_prefix:"RETRIES_"`
+	Retries RetriesConfig `yaml:"retries" env-prefix:"RETRIES_"`
 
-	Pool PoolConfig `yaml:"pool" env_prefix:"POOL_"`
+	Pool PoolConfig `yaml:"pool" env-prefix:"POOL_"`
 }
 
 // PoolConfig - pool for redis.Config
 type PoolConfig struct {
-	Size               int `yaml:"size" env:"SIZE" envDefault:"3"`
-	MinIdleConnections int `yaml:"min_idle_connections" env:"MIN_IDLE_CONNECTIONS" envDefault:"2"`
+	Size               int `yaml:"size" env:"SIZE" env-default:"3"`
+	MinIdleConnections int `yaml:"min_idle_connections" env:"MIN_IDLE_CONNECTIONS" env-default:"2"`
 }
 
 // TimeoutConfig - timeouts for redis.Config
 type TimeoutConfig struct {
-	DialMilliseconds  int `yaml:"dial_milliseconds" env:"DIAL_MILLISECONDS" envDefault:"5000"`
-	ReadMilliseconds  int `yaml:"read_milliseconds" env:"READ_MILLISECONDS" envDefault:"1000"`
-	WriteMilliseconds int `yaml:"write_milliseconds" env:"WRITE_MILLISECONDS" envDefault:"1000"`
+	DialMilliseconds  int `yaml:"dial_milliseconds" env:"DIAL_MILLISECONDS" env-default:"5000"`
+	ReadMilliseconds  int `yaml:"read_milliseconds" env:"READ_MILLISECONDS" env-default:"1000"`
+	WriteMilliseconds int `yaml:"write_milliseconds" env:"WRITE_MILLISECONDS" env-default:"1000"`
 }
 
 // RetriesConfig - retries for redis.Config
 type RetriesConfig struct {
-	MaxRetries int `env:"MAX_RETRIES" envDefault:"3"`
+	MaxRetries int `env:"MAX_RETRIES" env-default:"3"`
 }
 
 // New - create new redis conn with using given config

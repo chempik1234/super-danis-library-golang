@@ -11,16 +11,16 @@ import (
 
 // Config - required to connect to MongoDB with this library
 type Config struct {
-	Hosts       []string `env:"HOSTS" yaml:"hosts" envDefault:"mongodb:27017"`
-	MinPoolSize uint64   `env:"MIN_POOL_SIZE" yaml:"min_pool_size" envDefault:"1"`
-	MaxPoolSize uint64   `env:"MAX_POOL_SIZE" yaml:"max_pool_size" envDefault:"10"`
+	Hosts       []string `env:"HOSTS" yaml:"hosts" env-default:"mongodb:27017"`
+	MinPoolSize uint64   `env:"MIN_POOL_SIZE" yaml:"min_pool_size" env-default:"1"`
+	MaxPoolSize uint64   `env:"MAX_POOL_SIZE" yaml:"max_pool_size" env-default:"10"`
 
-	UserName    string `env:"USERNAME" yaml:"username" envDefault:"root"`
-	Password    string `env:"PASSWORD" yaml:"password" envDefault:"root"`
-	PasswordSet bool   `env:"PASSWORD_SET" yaml:"password_set" envDefault:"false"`
+	UserName    string `env:"USERNAME" yaml:"username" env-default:"root"`
+	Password    string `env:"PASSWORD" yaml:"password" env-default:"root"`
+	PasswordSet bool   `env:"PASSWORD_SET" yaml:"password_set" env-default:"false"`
 
-	RetryWrites bool `env:"RETRY_WRITES" yaml:"retry_writes" envDefault:"true"`
-	RetryReads  bool `env:"RETRY_READS" yaml:"retry_reads" envDefault:"true"`
+	RetryWrites bool `env:"RETRY_WRITES" yaml:"retry_writes" env-default:"true"`
+	RetryReads  bool `env:"RETRY_READS" yaml:"retry_reads" env-default:"true"`
 }
 
 // New - connect to MongoDB with given config
